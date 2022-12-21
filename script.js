@@ -23,69 +23,69 @@ function timeSet(ratio) {
     v.currentTime = v.duration * ratio
 }
 
-function keypress(key) {
-    console.log(key)
-    if (key.code == 70) { // f
+function keypress(e) {
+    var ev = e || event
+    if (ev.keyCode == 70) { // f
         openFullscreen()
     }
-    if (key.code == 74) { // j
+    if (ev.keyCode == 74) { // j
         timeChange(-10)
     }
-    if (key.code == 75) { // k
+    if (ev.keyCode == 75) { // k
         v.paused ? v.play() : v.pause()
     }
-    if (key.code == 76) { // l
+    if (ev.keyCode == 76) { // l
         timeChange(10)
     }
-    if (key.code == 37) { // ←
+    if (ev.keyCode == 37) { // ←
         timeChange(-5)
     }
-    if (key.code == 39) { // →
+    if (ev.keyCode == 39) { // →
         timeChange(5)
     }
-    if (key.code == 38) { // ↑
+    if (ev.keyCode == 38) { // ↑
         vid.volume += 0.1
     }
-    if (key.code == 40) { // ↓
+    if (ev.keyCode == 40) { // ↓
         vid.volume -= 0.1
     }
-    if (key.code == 77) { // m
+    if (ev.keyCode == 77) { // m
         vid.muted = !vid.muted
     }
-    if (key.code == 48) { // 0
+    if (ev.keyCode == 48) { // 0
         timeSet(0)
     }
-    if (key.code == 49) { // 1
+    if (ev.keyCode == 49) { // 1
         timeSet(0.1)
     }
-    if (key.code == 50) { // 2
+    if (ev.keyCode == 50) { // 2
         timeSet(0.2)
     }
-    if (key.code == 51) { // 3
+    if (ev.keyCode == 51) { // 3
         timeSet(0.3)
     }
-    if (key.code == 52) { // 4
+    if (ev.keyCode == 52) { // 4
         timeSet(0.4)
     }
-    if (key.code == 53) { // 5
+    if (ev.keyCode == 53) { // 5
         timeSet(0.5)
     }
-    if (key.code == 54) { // 6
+    if (ev.keyCode == 54) { // 6
         timeSet(0.6)
     }
-    if (key.code == 55) { // 7
+    if (ev.keyCode == 55) { // 7
         timeSet(0.7)
     }
-    if (key.code == 56) { // 8
+    if (ev.keyCode == 56) { // 8
         timeSet(0.8)
     }
-    if (key.code == 57) { // 9
+    if (ev.keyCode == 57) { // 9
         timeSet(0.9)
     }
 }
 
-document.addEventListener('keypress', keypress)
+document.body.onkeydown=_=>keypress(_)
 
 setInterval(_ => {
     history.replaceState(undefined, undefined, `#${v.currentTime}`)
-}, 5000)
+}, 5000) // this is in case your browser crashes or something and you need to restore your time, but it's on a 5 second delay because I feel like it. also, it's nicer to have a "bit of a recap" when coming back to something, even if it's just a few seconds
