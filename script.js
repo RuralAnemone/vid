@@ -43,13 +43,13 @@ function keypress(key) {
         timeChange(5)
     }
     if (key.code == 38) { // ↑
-        // volume up
+        vid.volume += 0.1
     }
     if (key.code == 40) { // ↓
-        // volume down
+        vid.volume -= 0.1
     }
     if (key.code == 77) { // m
-        // muted?0:0
+        vid.muted = !vid.muted
     }
     if (key.code == 48) { // 0
         timeSet(0)
