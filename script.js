@@ -4,12 +4,12 @@ if (!!location.hash) v.currentTime = location.hash.substring(1) // basically `if
 
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_fullscreen
 function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
+    if (v.requestFullscreen) {
+        v.requestFullscreen();
+    } else if (v.webkitRequestFullscreen) { /* Safari */
+        v.webkitRequestFullscreen();
+    } else if (v.msRequestFullscreen) { /* IE11 */
+        v.msRequestFullscreen();
     }
 }
 
