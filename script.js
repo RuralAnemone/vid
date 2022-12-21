@@ -24,6 +24,7 @@ function timeSet(ratio) {
 }
 
 function keypress(key) {
+    console.log(key)
     if (key.code == 70) { // f
         openFullscreen()
     }
